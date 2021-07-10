@@ -3,13 +3,13 @@ Vehicle Control
 
 [Longitudinal Control](#Longitudinal-Control)/[Lateral Control](#Lateral-Control)/[Running Carla Simulator](#Running-Carla-Simulator)/[Simulation](#Simulation)
 
-This respository includes files from the final project of the [Introduction to Self-Driving Cars](https://www.coursera.org/learn/intro-self-driving-cars) course by University of Toronto. This project involves implementation of vehicle controllers for self-driving cars in CARLA simulator in python 3.6.
+This repository includes files from the final project of the [Introduction to Self-Driving Cars](https://www.coursera.org/learn/intro-self-driving-cars) course by University of Toronto. This project involves implementation of vehicle controllers for self-driving cars in CARLA simulator in python 3.6.
 
-In order to implement a fully functional controller module for autonomous car the following controls were implemented:
+To implement a fully functional controller module for autonomous car the following controls were implemented:
 * Longitudinal Control
 * Lateral Control
 
-The table below shows the output varaibles of the controller module and their respective ranges. 
+The table below shows the output variables of the controller module and their respective ranges. 
 
 | Description |	Variable Name	| Limits
 |---|---|---
@@ -19,7 +19,7 @@ Brake	| brake_output |	0 to 1 (in percentage)
 
 ## Longitudinal Control
 
-A Proportional-Integral-Derivative (PID) controller was used for longitudinal control. The controller takes in the difference between the desired and the actual vehicle speeds as inputs and outputs throttle and/or brake positions needed to minimize that difference. Since the requirement here is of a simple speed controller, a PID based control design would be suffice. This controller calculates the necessary throttle and brake positions needed to acheive desired speed.
+A Proportional-Integral-Derivative (PID) controller was used for longitudinal control. The controller takes in the difference between the desired and the actual vehicle speeds as inputs and outputs throttle and/or brake positions needed to minimize that difference. Since the requirement here is of a simple speed controller, a PID based control design would suffice. This controller calculates the necessary throttle and brake positions needed to achieve desired speed.
 
 The schematic diagram below is the illustration of the PID control loop used.
 
@@ -29,20 +29,20 @@ This design can be broken down into a high level and a low level controller. The
 
 <p align="center"><img src="https://latex.codecogs.com/gif.latex?\bg_white&space;u(t)&space;=&space;K_pe(t)&space;&plus;&space;K_i\int&space;e(t)&space;\text{d}t&space;&plus;&space;K_d\frac{\text{d}e}{\text{d}t}" title="u(t) = K_pe(t) + K_i\int e(t) \text{d}t + K_d\frac{\text{d}e}{\text{d}t}"></p>
 
-Where,
+Were,
 - u(t) - Controller effort (Acceleration output)
 - e(t) - Error value
 - K<sub>p</sub> - Proportional gain
 - K<sub>i</sub> - Integral gain
 - K<sub>d</sub> - Derivative gain 
 
-A low level controller converts the acceleration output to throttle and brake commands. In this case, for simplicity positive acceleration will be throttle and negative outputs will correspond to brake.
+A low-level controller converts the acceleration output to throttle and brake commands. In this case, for simplicity positive acceleration will be throttle and negative outputs will correspond to brake.
 
 ## Lateral Control
 
-A leteral controller is used by the vehicle to track the vehicles desired path. The two main goals of this controller are: </br>
-* Heading path alignment
-* Elimination of offset to path
+A lateral controller is used by the vehicle to track the vehicles desired path. The two main goals of this controller are: </br>
+* Heading path alignment.
+* Elimination of offset to path.
 
 In this project a Stanley Controller was implemented, which is a geometric control design ,i.e., it relies on the geometry and coordinates of the desired path and the kinematic model of the vehicle.
 
@@ -51,11 +51,11 @@ The kinematic model of the vehicle is based on the Bicycle kinematic model which
 
 The reference positions given here are waypoint positions, therefore heading and crosstrack errors need to be calculated.
 - Crosstrack error (e) - Calculated as the perpendicular distance from the line connecting the previous and next waypoints and the front axle of the vehicle.
-- Crosstrack steering (δ<sub>crosstrack</sub>) - Contribution of crosstrack error to the steerinf input.
+- Crosstrack steering (δ<sub>crosstrack</sub>) - Contribution of crosstrack error to the steering input.
 
   <p align="center"><img src="https://latex.codecogs.com/gif.latex?\bg_white&space;\delta(t)_{crosstrack}&space;=&space;\tan^{-1}\left&space;(\frac{ke}{v}&space;\right&space;)" title="\delta(t) = \tan^{-1}\left (\frac{ke}{v} \right )"></p>
   
-  Where,
+  Were,
   - k - Gain (determined experimentally)
   - v - Current velocity
 
@@ -92,6 +92,6 @@ The simulation begins with the self-driving car being placed at the start line o
 
 <p align="center"><img src="https://github.com/JagtapSagar/Vehicle-Control/blob/main/media/simulation_and_control_feedback.gif"><p>
 
-The reference and the actual trajectory profile of the simulation is also illustrated in the gif below. The path in green is defined by the waypoints given. The path in yellow is the trajectory the vechicle has traced.
+The reference and the actual trajectory profile of the simulation is also illustrated in the gif below. The path in green is defined by the waypoints given. The path in yellow is the trajectory the vehicle has traced.
 <p align="center"><img src="https://github.com/JagtapSagar/Vehicle-Control/blob/main/media/vehicle_trajectory.gif" width=402 height=402></p>
 
