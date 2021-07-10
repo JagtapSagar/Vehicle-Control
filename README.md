@@ -88,10 +88,10 @@ NOTE:
 
 Simulation
 ---
-The simulation begins with the self-driving car being placed at the start line of a preconfigured racetrack in the CARLA simulator. The controller is feed the list of way points and a velocity profile to follow. PID longitudinal controller outputs the throttle and brake commands to execute given velocity profile. And the Stanley lateral controller outputs steering angles to ensure the vehicle follows the desired path which consists of the given waypoint. 
+The simulation begins with the self-driving car being placed at the start line of a preconfigured racetrack in the CARLA simulator. The controller is feed the list of way points and a velocity profile to follow. PID longitudinal controller outputs the throttle and brake commands to execute given velocity profile. And the Stanley lateral controller outputs steering angles to ensure the vehicle follows the desired path which consists of the given waypoint. The control feedback plots also can be seen on the left of the illustration below.
 
 <p align="center"><img src="https://github.com/JagtapSagar/Vehicle-Control/blob/main/media/simulation_and_control_feedback.gif"><p>
 
-The reference and the actual trajectory profile of the simulation is also illustrated in the gif below.
-<p align="center"><img src="https://github.com/JagtapSagar/Vehicle-Control/blob/main/media/vehicle_trajectory.gif"></p>
+The reference and the actual trajectory profile of the simulation is also illustrated in the gif below. The path in green is defined by the waypoints given. The path in yellow is the trajectory the vechicle has traced.
+<p align="center"><img src="https://github.com/JagtapSagar/Vehicle-Control/blob/main/media/vehicle_trajectory.gif" width=402 height=402></p>
 
