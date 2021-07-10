@@ -1,7 +1,7 @@
 Vehicle Control
 ===
 
-[Longitudinal Control](#Longitudinal-Control)/[Lateral Control](#Lateral-Control)/[Running Carla Simulator](#Running-Carla-Simulator)/[Simulation](#Simulation)
+[Longitudinal Control](#Longitudinal-Control)//[Lateral Control](#Lateral-Control)//[Running Carla Simulator](#Running-Carla-Simulator)//[Simulation](#Simulation)
 
 This repository includes files from the final project of the [Introduction to Self-Driving Cars](https://www.coursera.org/learn/intro-self-driving-cars) course by University of Toronto. This project involves implementation of vehicle controllers for self-driving cars in CARLA simulator in python 3.6.
 
